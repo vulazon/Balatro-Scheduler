@@ -2,7 +2,7 @@
 
 local scheduler = {}
 
-function scheduler:wait(num)
+function scheduler:wait(num) -- fix this function later
 	local thread = coroutine.running()
 
 	local current = os.clock()
@@ -11,9 +11,7 @@ function scheduler:wait(num)
 	func = function()
 		if os.clock() - num >= current then
 			tick:removeTask(func)
-
-			print("finished wait " .. num)
-
+			
 			if coroutine.status(thread) == "suspended" then
 				coroutine.resume(thread)
 			end
