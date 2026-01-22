@@ -15,7 +15,7 @@ function Game:update(dt)
 		local s, e = pcall(f)
 
 		if not s then
-			error("Tick error: " .. e)
+			error("Update error: " .. e)
 		end
 	end
 end
